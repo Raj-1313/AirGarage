@@ -14,12 +14,13 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 import HomePage from './Pages/HomePage';
+import AllRoute from './Routes/AllRoute';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-    <HomePage/>
-      </ChakraProvider>
+    <AllRoute/>
+       </ChakraProvider>
     // <Navbar/>
     // <Footer />
     //   <Box textAlign="center" fontSize="xl">

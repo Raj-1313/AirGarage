@@ -9,6 +9,8 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import Part2 from '../Home_Parts/Part2';
+import Page3 from '../Home_Parts/Page3';
+import Part4 from '../Home_Parts/Part4';
 // import Footer from '../Components/Footer';
 import Navbar from '../Components/Navbar';
 const HomePage = () => {
@@ -39,6 +41,8 @@ const HomePage = () => {
         </ButtonGroup>
       </Box>
       <Part2/>
+      <Page3/>
+      <Part4/>
     </Box>
   );
 };
