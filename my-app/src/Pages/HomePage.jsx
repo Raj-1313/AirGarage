@@ -1,12 +1,4 @@
-import {
-    Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Image,
-  Spacer,
-  Text,
-} from '@chakra-ui/react';
+import {    Box,  Button,  ButtonGroup,  Container,  Image,  Spacer,  Text,} from '@chakra-ui/react';
 import React from 'react';
 import Part2 from '../Home_Parts/Part2';
 import Page3 from '../Home_Parts/Page3';
@@ -16,14 +8,15 @@ import Navbar from '../Components/Navbar';
 const HomePage = () => {
   return (
     <Box w="100%">
+      {
+        <Box pos='fixed' w="100%" zIndex={2}  bg='white'>
       <Navbar/>
+        </Box>
+
+
+      }
       <Spacer/>
-      <Image
-        p="10"
-        m="auto"
-        src="https://assets.website-files.com/5d55f1425cb6b7a18aa77528/60ba98799d47da0806a85703_ag-p-500.png"
-        w="25vw"
-      />
+      <Image p="10" m="auto" src="https://assets.website-files.com/5d55f1425cb6b7a18aa77528/60ba98799d47da0806a85703_ag-p-500.png" w="25vw" />
       <Box>
         <Text fontSize="35px" fontFamily="Retroica, sans-serif" textAlign="center" p="2" fontWeight="Bold">
           Parking Operations for the 21st Century

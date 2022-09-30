@@ -1,26 +1,33 @@
-import {Text, Button, Container, Flex, FormControl, FormLabel, Input, Select, MenuItem, VStack, MenuList, Box } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import {Text, Button, Container, Flex, FormControl, FormLabel, Input, Select,  VStack,  } from '@chakra-ui/react'
+import React, { useState,useContext } from 'react'
 import axios from 'axios'
-import { FaHandLizard } from 'react-icons/fa'
+import { AuthContext } from '../Context/AuthContect'
+import { Navigate } from 'react-router-dom'
+
+
 const Input_compo = () => {
-const [name,setName]=useState()
+const {state,dispatch} =useContext(AuthContext)
+const [navigate,setNavigate]=useState(false)
 const [modeType,settype]=useState("")
 const [location,setLocation]=useState({
-    lat:"",lon:""
+  lat:"",lon:""
 })
+const [locationName,setLocationName]=useState("")
 
 const getData=(lon,lat,time)=>{
 axios.get(`https://api.airgarage.com/api/spots/?lite=true&lat=${lat}&lon=${lon}&rentalDuration=${time}`)
-.then((res)=>console.log(res.data)).catch((err)=>console.log(err));
+.then((res)=>dispatch({type:"DATA",payload:res.data}), setNavigate(true) ).catch((err)=>console.log(err));
 }
+
 
 const GetData=(country)=>{
 axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=10&appid=dcb77b0098b3350f151fac655e8d374a`)
-.then((res)=> setLocation({lat:res.data[0].lat,lon:res.data[0].lon})).catch((err)=>console.log(err))
+.then((res)=> setLocation({lat:res.data[0].lat,lon:res.data[0].lon})).catch((err)=>setLocation({lat:34.0522342,lon:-118.2436849}))
 }
-// setLocation({lat:34.0522342,lon:-118.2436849}
+
 const HandleChange= (e) => {
-    // GetData(e.target.value);    
+    GetData(e.target.value);    
+    setLocationName(e.target.value);
 }
 
 const onSubmit=(e)=>{
@@ -29,7 +36,13 @@ const onSubmit=(e)=>{
     console.log(lat,lon);
   getData(lon,lat,modeType)
 }
-console.log(name);
+
+if(navigate){
+  return <Navigate to="/locationData"></Navigate>
+}
+
+
+
   return (
     <>
       <Container textAlign="center" >
@@ -43,22 +56,16 @@ console.log(name);
   <FormLabel>LOCATION</FormLabel>
   <VStack>
  <Input type="name" placeholder="Enter an address" w="30vw" onChange={HandleChange}/>
-    {/* <Box  border="1px solid red" w="30vw">
-             {
-name && name.map((item)=> {
-    return <p>{item.name}</p>
-} )
-             }
-    </Box> */}
+  
   </VStack>
 </Container>
 <Container>
 <FormControl>
   <FormLabel>TYPE</FormLabel>
-  <Select onChange={(e)=>settype(e.target.value)}>
-    <option>monthly</option>
-    <option>hourly</option>
-    <option>airport</option>
+  <Select defaultValue="monthly" onChange={(e)=>settype(e.target.value)}>
+    <option value="monthly" >Monthly</option>
+    <option value="hourly">Hourly</option>
+    <option value="airport">Airport</option>
   </Select>
 </FormControl>
 </Container>
