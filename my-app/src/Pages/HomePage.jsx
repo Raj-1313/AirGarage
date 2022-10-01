@@ -1,5 +1,5 @@
-import {    Box,  Button,  ButtonGroup,  Container,  Image,  Spacer,  Text,} from '@chakra-ui/react';
-import React from 'react';
+import { Box,Image,Spacer} from '@chakra-ui/react';
+import Part1 from '../Home_Parts/Part1';
 import Part2 from '../Home_Parts/Part2';
 import Page3 from '../Home_Parts/Page3';
 import Part4 from '../Home_Parts/Part4';
@@ -19,34 +19,17 @@ const arr1=[{title:"Reporting & Analytics",link:"https://assets.website-files.co
 
 
   return (
-    <Box w="100%">
-      {
+    <Box  border='1px solid blue' width={{base:'100vw',sm:'100vw',md:'100vw',lg:'100vw'}} >
+    
         <Box pos='fixed' w="100%" zIndex={2}  bg='white'>
       <Navbar/>
         </Box>
 
-
-      }
       <Spacer/>
       <Image p="10" m="auto" src="https://assets.website-files.com/5d55f1425cb6b7a18aa77528/60ba98799d47da0806a85703_ag-p-500.png" w="25vw" />
-      <Box>
-        <Text fontSize="35px" fontFamily="Retroica, sans-serif" textAlign="center" p="2" fontWeight="Bold">
-          Parking Operations for the 21st Century
-        </Text>
-        <Box  w="75%" fontSize="20px" m="auto" textAlign="center" mb="30px">
-          AirGarage modernizes parking assets with one streamlined service
-          covering enforcement, payment collection, maintenance and more.
-        </Box>
+   
 
-        <ButtonGroup gap="2" display="flex" justifyContent="center" mb="20" >
-          <Button colorScheme="black" fontSize="12px" variant="outline" size="md">
-            Contect Customer Support
-          </Button>
-          <Button size="md" fontSize="12px" bg="black" color="white" hower={{bg:"white", color:"black"}}> Talk To Sales </Button>
-        </ButtonGroup>
-      </Box>
-      <Part2/>
-      <Page3/>
+      <Part1/><Part2/><Page3/>
       <Part4 value={arr} heading='Our value proposition' text="We've built the operating system for parking management, infusing technology into every facet of the business."/>
 
       <Grey_part heading='Get a better deal today' text='Send us your parking management contract and get a counter offer in 24 hours'/>
@@ -55,8 +38,9 @@ const arr1=[{title:"Reporting & Analytics",link:"https://assets.website-files.co
 
       <Part6/>
       <Grey_part  heading='Learn how we work for you' text='Talk to sales today' />
+
       <Footer></Footer>
-    </Box>
+   </Box>
   );
 };
 

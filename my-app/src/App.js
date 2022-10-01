@@ -12,9 +12,9 @@ import AllRoute from './Routes/AllRoute';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    // <ChakraProvider theme={theme}>
     <AllRoute/>
-       </ChakraProvider>
+      //  </ChakraProvider>
     // <Navbar/>
     // <Footer />
     //   <Box textAlign="center" fontSize="xl">
