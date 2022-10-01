@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import {AuthContext} from '../Context/AuthContect'
 import { Link } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
-import {AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon} from '@chakra-ui/icons'
+import { HamburgerIcon} from '@chakra-ui/icons'
 const Navbar = () => {
 const {state,dispatch} = useContext(AuthContext);
 const toast =useToast();

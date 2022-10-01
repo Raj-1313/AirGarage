@@ -9,12 +9,12 @@ const AuthContectProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, {
     isAuthenticated: false,
     isAuthenticatedError: false,
-    isAuthenticatedSuccess: false,
+    country: "",
     isLoading: false,
     data:[],
     individualData:{},
   })
-console.log(state);
+// console.log(state);
   return (
       <AuthContext.Provider value={{dispatch,state}} >
         {children}

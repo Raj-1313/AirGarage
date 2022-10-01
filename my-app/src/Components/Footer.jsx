@@ -8,6 +8,8 @@ import {
   VStack,
   Divider,
   Center,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -22,8 +24,11 @@ const Footer = () => {
           ></Image>
           <Text fontSize="sm"> 21st Century Parking Operator</Text>
         </Box>
-        <HStack   display="grid"    gridTemplateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)", lg:"repeat(4,1fr)"}} 
+        <Grid templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)", lg:"repeat(4,1fr)"}} 
                      mt="16"    >
+                      <GridItem colSpan={1}>
+
+
           <VStack h="200px" alignItems='left'>
             <Text fontSize="md">Company</Text>
             <Text fontSize="xs">About</Text>
@@ -32,6 +37,8 @@ const Footer = () => {
             <Text fontSize="xs">Contact customer support</Text>
             <Text fontSize="xs">Privacy Policy</Text>
           </VStack>
+                      </GridItem>
+                      <GridItem colSpan={1}>
 
           <VStack  h="200px" alignItems={'left'}>
             <Text mt="" fontSize="md">
@@ -42,6 +49,8 @@ const Footer = () => {
             <Text fontSize="xs">Surface Lots</Text>
             <Text fontSize="xs">Airport</Text>
           </VStack>
+                      </GridItem>
+                      <GridItem colSpan={1}>
 
           <VStack alignItems={'left'} h="200px">
             <Text fontSize="md">Features</Text>
@@ -50,6 +59,8 @@ const Footer = () => {
             <Text fontSize="xs">Payment collection</Text>
             <Text fontSize="xs">Gate arm alternative</Text>
           </VStack>
+                      </GridItem>
+                      <GridItem  colSpan={1}>
 
           <VStack alignItems={'right'} textAlign="right" h="200px">
             <Text fontSize="md">Find parking</Text>
@@ -57,7 +68,10 @@ const Footer = () => {
             <Text fontSize="xs">on Andriod app</Text>
             <Text fontSize="xs">on web </Text>
           </VStack>
-        </HStack>
+                      </GridItem>
+        </Grid>
+
+
         <Center height="80px" mb='-30px' >
           <Divider orientation="horizontal" backgroundColor={"red"} />
         </Center>

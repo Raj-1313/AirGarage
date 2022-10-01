@@ -1,20 +1,24 @@
 import React from 'react'
-import {Box,Badge ,Image,Text,Link, Flex} from "@chakra-ui/react"
+import {Box,Badge ,Image,Text,Link, Flex, Grid} from "@chakra-ui/react"
 import { StarIcon } from '@chakra-ui/icons'
 
 const Card_location = ({functionClick,props}) => {
+const {  url, name,  address, address1, address2, address3, address4,  price }=props
 
-    const {  url, name,  address, address1, address2, address3, address4,  price }=props
-    
+
+
   return (
     <>
-      <Box p={4} onClick={functionClick} display={{ md: 'flex' }} border="1px solid red">
+   
+      <Box p={4} onClick={functionClick} display={{ md: 'flex' }} >
   <Box flexShrink={0}>
     <Image
       borderRadius='lg'
-      width={{ md: 40 }}
+      width={{ md: 40, lg:'60' }}
       src= {url}
-      alt='Woman paying for a purchase' />
+      alt='Woman paying for a purchase' 
+      h={{ md: '130', lg:'130' }}
+      />
   </Box>
   <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
     <Flex gap={2}>
@@ -37,6 +41,7 @@ const Card_location = ({functionClick,props}) => {
       {name}
     </Link>
     <Text mt={2} color='gray.500'> {address}  {address1} {address2} {address3} {address4} </Text>
+    <Text mt={2} color='gray.500'> {price} </Text>
   </Box>
 </Box>
     </>

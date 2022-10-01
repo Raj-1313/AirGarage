@@ -13,8 +13,7 @@ const [location,setLocation]=useState({
 })
 const [locationName,setLocationName]=useState("")
 
-const getData=(lon,lat,time)=>{
- 
+const getData=(lon,lat,time)=>{ 
 axios.get(`https://api.airgarage.com/api/spots/?lite=true&lat=${lat}&lon=${lon}&rentalDuration=${time}`)
 .then((res)=>dispatch({type:"DATA",payload:res.data}), setNavigate(true), dispatch({type:"NOLOADING"}) ).catch((err)=>console.log(err));
 }
@@ -22,12 +21,14 @@ axios.get(`https://api.airgarage.com/api/spots/?lite=true&lat=${lat}&lon=${lon}&
 
 const GetData=(country)=>{
 axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=10&appid=dcb77b0098b3350f151fac655e8d374a`)
-.then((res)=> setLocation({lat:res.data[0].lat,lon:res.data[0].lon})).catch((err)=>setLocation({lat:34.0522342,lon:-118.2436849}))
+.then((res)=>  setLocation({lat:res.data[0].lat,lon:res.data[0].lon})).catch((err)=>setLocation({lat:34.0522342,lon:-118.2436849}))
 }
 
+
 const HandleChange= (e) => {
-    GetData(e.target.value);    
+    GetData(e.target.value);  
     setLocationName(e.target.value);
+    dispatch({type:"COUNTRY",payload:e.target.value});  
 }
 
 const onSubmit=(e)=>{

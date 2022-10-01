@@ -7,11 +7,10 @@ import { Navigate } from 'react-router-dom';
   const [navToFind,setFind]=useState(false)
 
 const Card = JSON.parse(localStorage.getItem('CARDINDIVIDUAL'));
-
 const {photo_url,address,display_price,name,price_monthly} =Card;
 const {address_line1,address_line2,city,state,zipcode}=address;
 
-console.log(display_price, address_line1);
+
 
 if(navToHome){
   return <Navigate to='/'/>

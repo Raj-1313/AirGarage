@@ -6,6 +6,7 @@ export default function reducer(state,action){
       case "logoutState": return {...state, isAuthenticated:false}
       case "LOADING": return {...state, isLoading:true}
       case "NOLOADING": return {...state, isLoading:false}
+      case "COUNTRY": return {...state, country:action.payload}
     //   default : return state
     }
     }
