@@ -4,6 +4,8 @@ export default function reducer(state,action){
       case "CARDINDIVIDUAL": return {...state, individualData:action.payload}
       case "authDone": return {...state, isAuthenticated:true}
       case "logoutState": return {...state, isAuthenticated:false}
+      case "LOADING": return {...state, isLoading:true}
+      case "NOLOADING": return {...state, isLoading:false}
     //   default : return state
     }
     }

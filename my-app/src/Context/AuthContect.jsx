@@ -10,6 +10,7 @@ const AuthContectProvider = ({children}) => {
     isAuthenticated: false,
     isAuthenticatedError: false,
     isAuthenticatedSuccess: false,
+    isLoading: false,
     data:[],
     individualData:{},
   })

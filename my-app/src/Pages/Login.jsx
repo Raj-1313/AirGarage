@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext } from "react";
 import {AuthContext} from "../Context/AuthContect"
 import { Navigate } from "react-router-dom";
-import { Box, Button, Container, Flex, FormControl, FormLabel, Grid, Heading, Image, Img, Input,Text,useToast } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, FormControl, FormLabel, Heading, Image, Img, Input,Text,useToast } from "@chakra-ui/react";
 
 
  

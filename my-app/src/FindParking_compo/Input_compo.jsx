@@ -4,19 +4,19 @@ import axios from 'axios'
 import { AuthContext } from '../Context/AuthContect'
 import { Navigate } from 'react-router-dom'
 
-
 const Input_compo = () => {
 const {state,dispatch} =useContext(AuthContext)
-const [navigate,setNavigate]=useState(false)
 const [modeType,settype]=useState("")
+const [navigate,setNavigate]=useState(false)
 const [location,setLocation]=useState({
   lat:"",lon:""
 })
 const [locationName,setLocationName]=useState("")
 
 const getData=(lon,lat,time)=>{
+ 
 axios.get(`https://api.airgarage.com/api/spots/?lite=true&lat=${lat}&lon=${lon}&rentalDuration=${time}`)
-.then((res)=>dispatch({type:"DATA",payload:res.data}), setNavigate(true) ).catch((err)=>console.log(err));
+.then((res)=>dispatch({type:"DATA",payload:res.data}), setNavigate(true), dispatch({type:"NOLOADING"}) ).catch((err)=>console.log(err));
 }
 
 
@@ -32,11 +32,13 @@ const HandleChange= (e) => {
 
 const onSubmit=(e)=>{
     const {lat,lon}=location
-    console.log(modeType);
-    console.log(lat,lon);
-  getData(lon,lat,modeType)
+      getData(lon,lat,modeType)
+  dispatch({type: 'LOADING'})
 }
 
+if(state.isLoading){
+return <Navigate to="/loading" />
+}
 if(navigate){
   return <Navigate to="/locationData"></Navigate>
 }
