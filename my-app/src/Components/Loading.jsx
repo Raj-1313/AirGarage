@@ -5,9 +5,10 @@ import {Navigate} from "react-router-dom"
 
 const Loading = () => {
 const {state}=useContext(AuthContext)
-  if(!state.loading){
-  return <Navigate to="/locationData"></Navigate>
-}
+
+//   if(!state.loading){
+//   return <Navigate to="/locationData"></Navigate>
+// }
 
   return (
     <div style={{height:"100vh" ,backgroundColor:"orange"}} >

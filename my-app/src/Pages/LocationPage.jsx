@@ -1,13 +1,26 @@
 import { AuthContext } from '../Context/AuthContect';
-import { useContext, useState } from 'react';
+import { useContext, useState,useEffect } from 'react';
 import Card_location from '../Components/Card_location';
 import { Link, Navigate } from 'react-router-dom';
 import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
-import { ArrowBackIcon, ArrowLeftIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import Loading from '../Components/Loading';
 
 const LocationPage = () => {
   const { state, dispatch } = useContext(AuthContext);
   const [navigate, setNavigate] = useState(false);
+
+
+  useEffect(()=>{  
+    dispatch({type:"LOADING"});
+     setTimeout(()=>{
+       dispatch({type:"NOLOADING"});
+     },1000)
+     
+  },[])
+
+
+
 
   function handleID(e) {
     dispatch({ type: 'CARDINDIVIDUAL', payload: e });
@@ -17,7 +30,12 @@ const LocationPage = () => {
 
   if (navigate) {
     return <Navigate to="/carddetails" />;
-  }
+      }
+
+if(state.isLoading){
+  return <Loading/>
+}
+
   return (
     <Grid
       templateColumns={{
@@ -40,7 +58,6 @@ const LocationPage = () => {
         <Heading>{state.country}</Heading>
         {state.data &&
           state.data.map(item => (
-            // console.log(item.display_price)
             <Card_location
               key={item.uuid}
               functionClick={() => handleID(item)}
@@ -64,7 +81,7 @@ const LocationPage = () => {
         >
         <Box
           p="2"
-          border="4px solid red"
+          border="4px solid white"
           mt="16"
           borderRadius="12"
           pos="fixed"

@@ -16,7 +16,7 @@ const {  url, name,  address, address1, address2, address3, address4,  price }=p
       borderRadius='lg'
       width={{ md: 40, lg:'60' }}
       src= {url}
-      alt='Woman paying for a purchase' 
+      alt='Image is not Present' 
       h={{ md: '130', lg:'130' }}
       />
   </Box>

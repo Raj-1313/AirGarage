@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer1 = () => {
   return (
-    <Box position="Bottom">
+    <Box position="Bottom" w='100vw'>
 
       <Box h="10vh" bg="#fa824c" textAlign="center">
       <Container color="white" textAlign="center">

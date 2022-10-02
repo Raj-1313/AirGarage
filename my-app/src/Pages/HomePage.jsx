@@ -19,7 +19,7 @@ const arr1=[{title:"Reporting & Analytics",link:"https://assets.website-files.co
 
 
   return (
-    <Box  border='1px solid blue' width={{base:'100vw',sm:'100vw',md:'100vw',lg:'100vw'}} >
+    <Box  width={{base:'100vw',sm:'100vw',md:'100vw',lg:'100vw'}} >
     
         <Box pos='fixed' w="100%" zIndex={2}  bg='white'>
       <Navbar/>
