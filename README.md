@@ -1,5 +1,5 @@
-Air Garage Application
-### AirGarage is a full service parking operator and a site that allows users to locate parking along with price and rating.
+# Air Garage Application
+ AirGarage is a full service parking operator and a site that allows users to locate parking along with price and rating.
 
 
 
